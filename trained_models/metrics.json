@@ -1,0 +1,78 @@
+{
+  "trained_at": "2026-11-22T15:01:38.651598+00:00",
+  "synthetic_data": true,
+  "warning": "These metrics were computed on SYNTHETIC template-generated data. They are NOT indicative of real-world spam/phishing detection performance. Retrain with real labeled datasets.",
+  "dataset": "SYNTHETIC demo data",
+  "sources": {
+    "SYNTHETIC_DEMO": 267
+  },
+  "classes": [
+    "PHISHING",
+    "SAFE",
+    "SPAM"
+  ],
+  "class_distribution_total": {
+    "PHISHING": 130,
+    "SPAM": 84,
+    "SAFE": 53
+  },
+  "n_train": 213,
+  "n_test": 54,
+  "test_size": 0.2,
+  "seed": 42,
+  "accuracy": 1.0,
+  "macro_precision": 1.0,
+  "macro_recall": 1.0,
+  "macro_f1": 1.0,
+  "per_class": {
+    "PHISHING": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 26
+    },
+    "SAFE": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 11
+    },
+    "SPAM": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 17
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "PHISHING",
+      "SAFE",
+      "SPAM"
+    ],
+    "matrix": [
+      [
+        26,
+        0,
+        0
+      ],
+      [
+        0,
+        11,
+        0
+      ],
+      [
+        0,
+        0,
+        17
+      ]
+    ]
+  },
+  "n_features": 591,
+  "model": "TfidfVectorizer(1-2gram, sublinear_tf) + LogisticRegression(class_weight=balanced)",
+  "limitations": [
+    "Evaluated on a single stratified hold-out split, not cross-validated.",
+    "Spam/phishing language drifts over time; accuracy on new campaigns will be lower.",
+    "Messages are short chat texts; most public datasets are SMS or long e-mails (domain mismatch)."
+  ]
+}
