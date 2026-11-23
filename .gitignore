@@ -22,3 +22,13 @@ smart-contracts/cache/
 
 # Frontend production build
 frontend/dist/
+
+# Local private keys
+*.pem
+private_key*
+ec_private_key*
+
+# Local key-generation files
+generate_key.py
+public_key.txt
+testuser_public_key.txt
