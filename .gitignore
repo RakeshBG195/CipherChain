@@ -18,3 +18,7 @@ backend/*.db
 backend/.jwt_secret
 smart-contracts/artifacts/
 smart-contracts/cache/
+.neon
+
+# Frontend production build
+frontend/dist/

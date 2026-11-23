@@ -9,7 +9,7 @@ async function main() {
   await contract.waitForDeployment();
   const address = await contract.getAddress();
   const artifact = await hre.artifacts.readArtifact("MessageIntegrity");
-  const out = path.join(__dirname, "..", "deployments", "localhost.json");
+  const out = path.join(__dirname, "..", "deployments", `${hre.network.name}.json`);
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, JSON.stringify({
     contract: "MessageIntegrity", address, abi: artifact.abi,
@@ -21,3 +21,4 @@ async function main() {
 }
 
 main().catch((e) => { console.error(e); process.exitCode = 1; });
+

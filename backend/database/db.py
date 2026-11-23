@@ -1,14 +1,27 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+
 from backend.config import DB_URL
 from backend.database.base import Base
 
-engine = create_engine(DB_URL, connect_args={"check_same_thread": False})
-SessionLocal = sessionmaker(bind=engine, autoflush=False, expire_on_commit=False)
+# SQLite needs a special connection argument; PostgreSQL does not.
+connect_args = (
+    {"check_same_thread": False}
+    if DB_URL.startswith("sqlite")
+    else {}
+)
+
+engine = create_engine(DB_URL, connect_args=connect_args)
+
+SessionLocal = sessionmaker(
+    bind=engine,
+    autoflush=False,
+    expire_on_commit=False,
+)
 
 
 def init_db():
-    import backend.models.models  # noqa: F401  (register tables)
+    import backend.models.models  # noqa: F401
     Base.metadata.create_all(engine)
 
 
