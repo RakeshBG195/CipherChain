@@ -182,3 +182,7 @@ def get_ledger():
     if _ledger is None:
         _ledger = Web3Ledger()
     return _ledger
+
+
+def chain_key(uid_hex: str) -> int:
+    return int(uid_hex, 16)
